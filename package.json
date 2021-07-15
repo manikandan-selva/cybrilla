@@ -1,0 +1,57 @@
+{
+  "name": "user_service",
+  "version": "1.0.0",
+  "description": "auth server",
+  "main": "app.js",
+  "scripts": {
+    "dev": "nodemon --inspect=9227 --exec babel-node -- ./app.js",
+    "debug": "nodemon --inspect --exec babel-node -- ./app.js",
+    "start": "babel-node -- ./app.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "user service",
+    "Microservice"
+  ],
+  "author": "Hari prasad",
+  "license": "ISC",
+  "dependencies": {
+    "@babel/node": "^7.8.4",
+    "@babel/polyfill": "^7.8.3",
+    "await-to-js": "^2.1.1",
+    "awilix": "^4.2.4",
+    "awilix-express": "^3.0.0",
+    "axios": "^0.19.2",
+    "bcrypt": "^5.0.0",
+    "body-parser": "^1.19.0",
+    "camelcase": "^5.3.1",
+    "cors": "^2.8.5",
+    "country-state-city": "^1.0.5",
+    "express": "^4.17.1",
+    "express-joi-validation": "^4.0.3",
+    "helmet": "^3.23.3",
+    "http-status-codes": "^1.4.0",
+    "ipware": "^2.0.0",
+    "joi": "^17.2.0",
+    "joi-date-extensions": "^1.2.0",
+    "jsonwebtoken": "^8.5.1",
+    "morgan": "^1.10.0",
+    "mysql2": "^2.1.0",
+    "nodemailer": "^6.4.10",
+    "sendotp": "^1.2.9",
+    "sequelizer": "^1.1.4",
+    "swagger-ui-express": "^4.1.4",
+    "twilio": "^3.51.0",
+    "winston": "^3.3.3",
+    "winston-daily-rotate-file": "^4.5.0"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.8.4",
+    "@babel/plugin-proposal-class-properties": "^7.8.3",
+    "@babel/preset-env": "^7.8.4",
+    "dotenv": "^8.2.0",
+    "eslint": "^7.6.0",
+    "nodemon": "^2.0.2",
+    "sequelize-cli": "^5.5.1"
+  }
+}

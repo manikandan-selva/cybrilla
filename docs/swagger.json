@@ -1,0 +1,248 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "description": "medall user authentication service",
+        "version": "1.0.0",
+        "title": "Medall Auth Service",
+        "termsOfService": "http://swagger.io/terms/",
+        "contact": {
+            "email": "hari.prasad@doodleblue.com"
+        },
+        "license": {
+            "name": "Apache 2.0",
+            "url": "http://www.apache.org/licenses/LICENSE-2.0.html"
+        }
+    },
+    "host": "localhost:2172",
+    "basePath": "/api/v1",
+    "tags": [
+        {
+            "name": "signup"
+        },
+        {
+            "name": "signin"
+        }
+    ],
+    "schemes": [
+        "http"
+    ],
+    "paths": {
+        "/user/signup/patient": {
+            "post": {
+                "tags": [
+                    "signup"
+                ],
+                "summary": "registering patient",
+                "description": "",
+                "operationId": "signUpPatient",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "description": "signup patient",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/signUpPatient"
+                        }
+                    }
+                ],
+                "responses": {
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "200": {
+                        "description": "Successful Operation"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/user/otp/send": {
+            "post": {
+                "tags": [
+                    "signin"
+                ],
+                "summary": "signin user",
+                "description": "",
+                "operationId": "getOtp",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "description": "get otp for login",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/getOtp"
+                        }
+                    }
+                ],
+                "responses": {
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "200": {
+                        "description": "Successful Operation"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/user/otp/validate": {
+            "post": {
+                "tags": [
+                    "signin"
+                ],
+                "summary": "validate user otp",
+                "description": "",
+                "operationId": "validateOtp",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "description": "signup patient",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/validateOtp"
+                        }
+                    }
+                ],
+                "responses": {
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "200": {
+                        "description": "Successful Operation"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        }
+    },
+    "securitySchemes ": {
+        "bearerAuth": {
+            "type": "http",
+            "scheme": "bearer",
+            "bearerFormat": "JWT"
+        }
+    },
+    "securityDefinitions": {
+        "bearerAuth": {
+            "type": "apiKey",
+            "name": "Authorization",
+            "in": "header"
+        }
+    },
+    "definitions": {
+        "signUpPatient": {
+            "type": "object",
+            "properties": {
+                "name": {
+                    "type": "string"
+                },
+                "email": {
+                    "type": "string"
+                },
+                "country": {
+                    "type": "string"
+                },
+                "state": {
+                    "type": "string"
+                },
+                "pincode": {
+                    "type": "string"
+                },
+                "bloodGroup": {
+                    "type": "string"
+                },
+                "height": {
+                    "type": "string"
+                },
+                "weight": {
+                    "type": "string"
+                },
+                "gender": {
+                    "type": "string"
+                },
+                "password": {
+                    "type": "string"
+                },
+                "mobileNo": {
+                    "type": "string"
+                }
+            },
+            "example": {
+                "name": "test",
+                "email": "test@gmail.com",
+                "country": "india",
+                "state": "Ap",
+                "pincode": "600042",
+                "bloodGroup": "o+",
+                "height": "150cm",
+                "gender": "male",
+                "weight": "50kgs",
+                "password": "Test@123",
+                "mobileNo": "8500050088"
+            }
+        },
+        "getOtp": {
+            "type": "object",
+            "properties": {
+                "emailIdPhoneNo": {
+                    "type": "string"
+                }
+            },
+            "example": {
+                "emailIdPhoneNo": "8500050085"
+            }
+        },
+        "validateOtp": {
+            "type": "object",
+            "properties": {
+                "OTP": {
+                    "type": "string"
+                },
+                "emailIdPhoneNo": {
+                    "type": "string"
+                }
+            },
+            "example": {
+                "OTP": "12345",
+                "emailIdPhoneNo": "8500050085"
+            }
+        }
+    },
+    "externalDocs": {
+        "description": "Find out more about Swagger",
+        "url": "http://swagger.io"
+    }
+}
